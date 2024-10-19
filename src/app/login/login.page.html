@@ -1,31 +1,28 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Iniciar Sesión</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="login-container">
+  <div class="header">
+    <div class="triangle"></div>
+  </div>
 
-<ion-content class="ion-padding">
-  <div class="login-container">
-    <img src="/assets/Skeleton.jp" alt="SkeletonApp" class="logo">
+  <div class="welcome-message">
+    <h1>Bienvenido</h1>
+    <p>SkeletonApp</p>
+  </div>
 
-    <ion-item>
-      <ion-label position="floating">Correo Electronico</ion-label>
-      <ion-input type="email" [(ngModel)]="email"></ion-input>
-    </ion-item>
+  <div class="login-buttons">
+    <ion-button expand="block" color="primary" class="login-btn">Ingresa</ion-button>
+    <ion-button expand="block" color="light" class="signup-btn">Registrate</ion-button>
+  </div>
 
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
-    </ion-item>
+  <p class="forgot-password">¿Olvidaste tu contraseña? <a href="#">Recuperar contraseña</a></p>
 
-    <ion-button expand="block" color="primary" (click)="login()">Iniciar Sesion</ion-button>
+  <p class="social-login"></p>
 
-    <div class="forgot-password">
-      <a href="#">¿Olvidaste tu contraseña?</a>
-    </div>
+  
+  
+    <div class="social-icons">
+    <ion-icon name="logo-ionic" class="icon"></ion-icon>
+    <ion-icon name="logo-apple" class="icon"></ion-icon>
+    <ion-icon name="logo-android" class="icon"></ion-icon>
 
-    <div class="create-account">
-      <p>¿No tienes cuenta? <a href="#">Registrate</a></p>
-    </div>
   </div>
 </ion-content>
