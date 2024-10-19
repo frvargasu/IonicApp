@@ -1,0 +1,60 @@
+.login-container {
+    text-align: center;
+    margin-top: 50px;
+  
+    .logo {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+  
+    ion-item {
+      --background: white; 
+      margin-bottom: 15px;
+    }
+  
+    ion-button {
+      --background: #ff6200; 
+      --color: white; 
+      width: 80%; 
+      margin: 20px auto;
+    }
+  
+    .forgot-password {
+      margin-top: 15px;
+      a {
+        color: #ff6200; 
+      }
+    }
+  
+    .create-account {
+      margin-top: 20px;
+      p {
+        font-size: 14px;
+      }
+      a {
+        color: #ff6200; 
+        font-weight: bold;
+      }
+    }
+  }
+  
+  ion-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    background-color: #f4f4f4; 
+  }
+  
+  ion-header {
+    ion-toolbar {
+      display: flex;
+      justify-content: center;
+      ion-title {
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+  

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Iniciar Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login-container">
+    <img src="/assets/Skeleton.jp" alt="SkeletonApp" class="logo">
+
+    <ion-item>
+      <ion-label position="floating">Correo Electronico</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" color="primary" (click)="login()">Iniciar Sesion</ion-button>
+
+    <div class="forgot-password">
+      <a href="#">¿Olvidaste tu contraseña?</a>
+    </div>
+
+    <div class="create-account">
+      <p>¿No tienes cuenta? <a href="#">Registrate</a></p>
+    </div>
+  </div>
+</ion-content>
