@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ingreso</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="modal-login-container">
+  <!-- Campo de Usuario -->
+  <ion-item>
+    <ion-label position="floating">Usuario</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario"></ion-input>
+  </ion-item>
+
+  <!-- Campo de Contraseña -->
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+
+  <!-- Botón para Ingresar -->
+  <ion-button expand="block" color="primary" (click)="verificarCredenciales()">Ingresar</ion-button>
+
+  <!-- Mensaje de Error (opcional) -->
+  <ion-text *ngIf="mensajeError" color="danger">
+    <p>{{ mensajeError }}</p>
+  </ion-text>
+</ion-content>

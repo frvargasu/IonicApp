@@ -6,27 +6,23 @@
   <div class="welcome-message">
     <h1>Bienvenido</h1>
     <p>SkeletonApp</p>
-    <p> </p>
-
   </div>
 
   <div class="login-buttons">
-    <ion-button expand="block" color="primary" class="login-btn">Ingresa</ion-button>
+    <ion-button expand="block" color="primary" class="login-btn" (click)="navigateToMenu()">Ingresa</ion-button>
     <ion-button expand="block" color="light" class="signup-btn">Registrate</ion-button>
   </div>
 
-  <p class="forgot-password">¿Olvidaste tu contraseña? <a href="#">Recuperar contraseña</a></p>
+  <p class="forgot-password">
+    ¿Olvidaste tu contraseña? <a href="#">Recuperar contraseña</a>
+  </p>
 
-  <p class="social-login"></p>
+  <div class="social-login">
+  </div>
 
-  
-  
-    <div class="social-icons">
-    
+  <div class="social-icons">
     <ion-icon name="logo-apple" class="icon"></ion-icon>
     <ion-icon name="logo-android" class="icon"></ion-icon>
     <ion-icon name="skull-outline" class="icon"></ion-icon>
-
-
   </div>
 </ion-content>
