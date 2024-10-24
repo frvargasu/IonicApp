@@ -6,21 +6,23 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ModalLoginComponent } from './modal-login/modal-login.component'; // Asegúrate de que la ruta sea correcta
+import { ModalLoginComponent } from './modal-login/modal-login.component';
+import { ModalDetalleProductoComponent } from './modal-detalle-producto/modal-detalle-producto.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ModalLoginComponent // Declara el modal
+    ModalLoginComponent,
+    ModalDetalleProductoComponent 
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    FormsModule // Importa FormsModule para usar [(ngModel)]
+    FormsModule 
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA] // Agrega CUSTOM_ELEMENTS_SCHEMA para reconocer elementos como ion-app
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] 
 })
 export class AppModule {}

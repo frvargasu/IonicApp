@@ -11,23 +11,21 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule) 
   },
 
-  // Ruta para la página de tabs (si es necesaria)
   { 
     path: 'tabs', 
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule) 
   },
 
-  // Ruta para la página del menú de productos
   { 
     path: 'menu-productos', 
     loadChildren: () => import('./menu-productos/menu-productos.module').then(m => m.MenuProductosPageModule) 
   },
 
-  // Ruta para la página de detalle de producto
   {
     path: 'detalle-producto',
     loadChildren: () => import('./detalle-producto/detalle-producto.module').then(m => m.DetalleProductoPageModule)
-  },  {
+  },
+  {
     path: 'carrito',
     loadChildren: () => import('./carrito/carrito.module').then( m => m.CarritoPageModule)
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarritoService } from '../services/carrito.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-carrito',
@@ -7,15 +8,37 @@ import { CarritoService } from '../services/carrito.service';
   styleUrls: ['./carrito.page.scss'],
 })
 export class CarritoPage implements OnInit {
-  productosCarrito: any[] = []; // Cambiamos `never[]` a `any[]`
+  productos: any[] = [];
+  total: number = 0;
 
-  constructor(private carritoService: CarritoService) {}
+  constructor(private carritoService: CarritoService, private navCtrl: NavController) {}
 
   ngOnInit() {
-    this.productosCarrito = this.carritoService.obtenerCarrito();
+    this.cargarCarrito();
   }
 
-  eliminarDelCarrito(index: number) {
-    this.carritoService.eliminarProducto(index);
+  cargarCarrito() {
+    this.productos = this.carritoService.obtenerProductos();
+    this.total = this.carritoService.obtenerTotal();
+  }
+
+  cambiarCantidad(producto: any, incremento: number) {
+    producto.cantidad = Math.max(1, producto.cantidad + incremento);
+    this.carritoService.actualizarTotal();
+    this.total = this.carritoService.obtenerTotal();
+  }
+
+  vaciarCarrito() {
+    this.carritoService.vaciarCarrito();
+    this.cargarCarrito();
+  }
+
+  eliminarProducto(nombreProducto: string) {
+    this.carritoService.eliminarProducto(nombreProducto);
+    this.cargarCarrito();
+  }
+
+  volver() {
+    this.navCtrl.navigateBack('/menu-productos');
   }
 }

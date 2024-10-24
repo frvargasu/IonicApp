@@ -1,26 +1,43 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CarritoService {
-  private carrito: any[] = []; // Cambiamos `never[]` a `any[]`
+  private carrito: any[] = [];
+  private total: number = 0;
 
   constructor() {}
 
-  agregarProducto(producto: any) {
-    this.carrito.push(producto);
-  }
-
-  obtenerCarrito() {
+  obtenerProductos() {
     return this.carrito;
   }
 
-  eliminarProducto(index: number) {
-    this.carrito.splice(index, 1);
+  agregarProducto(producto: any) {
+    const productoExistente = this.carrito.find(p => p.nombre === producto.nombre);
+    if (productoExistente) {
+      productoExistente.cantidad += producto.cantidad;
+    } else {
+      this.carrito.push({ ...producto });
+    }
+    this.actualizarTotal();
+  }
+
+  actualizarTotal() {
+    this.total = this.carrito.reduce((sum, producto) => sum + (producto.precio * producto.cantidad), 0);
+  }
+
+  obtenerTotal() {
+    return this.total;
   }
 
   vaciarCarrito() {
     this.carrito = [];
+    this.total = 0;
+  }
+
+  eliminarProducto(nombreProducto: string) {
+    this.carrito = this.carrito.filter(producto => producto.nombre !== nombreProducto);
+    this.actualizarTotal();
   }
 }

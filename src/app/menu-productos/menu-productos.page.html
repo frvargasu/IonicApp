@@ -17,9 +17,18 @@
 </ion-header>
 
 <ion-content class="menu-productos-container">
+  <!-- Categorías -->
+  <ion-item>
+    <ion-label>Categoría</ion-label>
+    <ion-select [(ngModel)]="categoriaSeleccionada" placeholder="Selecciona una categoría">
+      <ion-select-option value="">Todas</ion-select-option>
+      <ion-select-option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
   <!-- Lista de productos -->
   <ion-list>
-    <ion-item *ngFor="let producto of productos" (click)="verDetalleProducto(producto)">
+    <ion-item *ngFor="let producto of filtrarPorCategoria()" (click)="verDetalleProducto(producto)">
       <ion-thumbnail slot="start">
         <img [src]="producto.imagen" alt="{{ producto.nombre }}">
       </ion-thumbnail>
@@ -27,6 +36,13 @@
         <h2>{{ producto.nombre }}</h2>
         <p>{{ producto.descripcion }}</p>
         <strong>{{ producto.precio | currency }}</strong>
+
+        <div class="cantidad-container">
+          <ion-button fill="outline" (click)="cambiarCantidad(producto, -1); $event.stopPropagation()" size="small">-</ion-button>
+          <span>{{ producto.cantidad }}</span>
+          <ion-button fill="outline" (click)="cambiarCantidad(producto, 1); $event.stopPropagation()" size="small">+</ion-button>
+          <p class="cantidad-maxima">Máximo 999 unidades.</p>
+        </div>
       </ion-label>
       <ion-button fill="outline" slot="end" (click)="agregarAlCarrito(producto); $event.stopPropagation()">Agregar</ion-button>
     </ion-item>
