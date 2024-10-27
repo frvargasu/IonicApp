@@ -1,0 +1,48 @@
+.banner-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .banner-info {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 100%;
+    padding: 10px;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .precio-container {
+    margin-top: 5px;
+
+    .precio-oferta {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #e63946; /* Color para destacar el precio de oferta */
+    }
+
+    .precio-normal {
+      font-size: 1rem;
+      text-decoration: line-through;
+      color: #f1faee; /* Color para el precio normal tachado */
+      margin-left: 10px;
+    }
+  }
+}

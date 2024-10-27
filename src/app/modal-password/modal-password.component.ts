@@ -21,7 +21,7 @@ export class ModalLoginComponent {
     const passwordCorrecta = '12345';
 
     if (this.usuario === usuarioCorrecto && this.password === passwordCorrecta) {
-      this.modalCtrl.dismiss(true); // Cierra el modal con éxito
+      this.modalCtrl.dismiss(true); 
     } else {
       alert('Usuario o contraseña incorrectos. Inténtalo de nuevo.');
     }

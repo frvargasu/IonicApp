@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from '@ionic/angular';
-import { ModalLoginComponent } from '../modal-login/modal-login.component'; // Asegúrate de que la ruta sea correcta
+import { NavController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -10,24 +9,53 @@ import { ModalLoginComponent } from '../modal-login/modal-login.component'; // A
 export class LoginPage {
   constructor(
     private navCtrl: NavController,
-    private modalCtrl: ModalController
+    private alertController: AlertController
   ) {}
 
   async navigateToMenu() {
-    // Crea el modal de solicitud de usuario y contraseña
-    const modal = await this.modalCtrl.create({
-      component: ModalLoginComponent,
+    const alert = await this.alertController.create({
+      header: 'Ingrese su usuario',
+      inputs: [
+        {
+          name: 'username',
+          type: 'text',
+          placeholder: 'Usuario',
+        },
+        {
+          name: 'password',
+          type: 'password',
+          placeholder: 'Contraseña',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+        },
+        {
+          text: 'Aceptar',
+          handler: (data) => {
+            if (data.username === 'usuario' && data.password === 'contraseña') {
+              this.navCtrl.navigateForward('/menu-productos');
+            } else {
+              this.presentAlertIncorrectCredentials();
+            }
+          },
+        },
+      ],
     });
 
-    // Muestra el modal
-    await modal.present();
+    await alert.present();
+  }
 
-    // Espera el resultado del modal
-    const { data } = await modal.onDidDismiss();
+  async presentAlertIncorrectCredentials() {
+    const alert = await this.alertController.create({
+      header: 'Credenciales Incorrectas',
+      message: 'El usuario o la contraseña ingresados no son correctos. Intentalo de nuevo.',
+      buttons: ['OK'],
+    });
 
-    // Si las credenciales son correctas, navega al menú de productos
-    if (data) {
-      this.navCtrl.navigateForward('/menu-productos');
-    }
+    await alert.present();
   }
 }

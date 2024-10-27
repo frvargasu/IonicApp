@@ -18,12 +18,11 @@ export class ModalLoginComponent {
   }
 
   verificarCredenciales() {
-    // Credenciales correctas (puedes cambiar estas credenciales por lo que necesites)
     const usuarioCorrecto = 'usuario123';
     const passwordCorrecta = '12345';
 
     if (this.usuario === usuarioCorrecto && this.password === passwordCorrecta) {
-      this.modalCtrl.dismiss(true); // Cierra el modal con éxito
+      this.modalCtrl.dismiss(true);
     } else {
       this.mensajeError = 'Usuario o contraseña incorrectos. Inténtalo de nuevo.';
     }
