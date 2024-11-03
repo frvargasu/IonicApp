@@ -1,27 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Bienvenido a Home & Tools</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="irALogin()">Iniciar sesión</ion-button>
-    </ion-buttons>
+    <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <!-- Banner de productos (utilizando ion-slides) -->
-  <ion-slides pager="true" [options]="slideOpts">
-    <ion-slide *ngFor="let producto of productos">
-      <div class="banner-container">
-        <img src="assets/banner.jpg" alt="{{ producto.nombre }}">
-        <div class="banner-info">
-          <h3>{{ producto.nombre }}</h3>
-          <p>{{ producto.descripcion }}</p>
-          <div class="precio-container">
-            <span class="precio-oferta">{{ producto.precioOferta }}</span>
-            <span class="precio-normal">{{ producto.precioNormal }}</span>
-          </div>
-        </div>
-      </div>
-    </ion-slide>
-  </ion-slides>
+<ion-content class="ion-padding">
+  <!-- Quitar el botón "Iniciar sesión" sin lógica aún -->
+  <!-- <ion-button (click)="irALogin()">Iniciar sesión</ion-button> -->
+
+  
 </ion-content>

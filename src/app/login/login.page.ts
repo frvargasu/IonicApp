@@ -12,6 +12,11 @@ export class LoginPage {
     private alertController: AlertController
   ) {}
 
+  
+  navigateToRegistro() {
+    this.navCtrl.navigateForward('/registro');
+  }
+
   async navigateToMenu() {
     const alert = await this.alertController.create({
       header: 'Ingrese su usuario',
@@ -36,7 +41,12 @@ export class LoginPage {
         {
           text: 'Aceptar',
           handler: (data) => {
-            if (data.username === 'usuario' && data.password === 'contraseña') {
+            const usuarioRegistrado = JSON.parse(localStorage.getItem('usuario')!);
+            if (
+              usuarioRegistrado &&
+              data.username === usuarioRegistrado.nombre &&
+              data.password === 'contraseña'
+            ) {
               this.navCtrl.navigateForward('/menu-productos');
             } else {
               this.presentAlertIncorrectCredentials();
@@ -52,7 +62,7 @@ export class LoginPage {
   async presentAlertIncorrectCredentials() {
     const alert = await this.alertController.create({
       header: 'Credenciales Incorrectas',
-      message: 'El usuario o la contraseña ingresados no son correctos. Intentalo de nuevo.',
+      message: 'El usuario o la contraseña ingresados no son correctos. Inténtalo de nuevo.',
       buttons: ['OK'],
     });
 
