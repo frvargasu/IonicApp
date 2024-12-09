@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "map-app",
+=======
+  "name": "ionicApp",
+>>>>>>> d63a530cf1195866ed00d47d395aa50ea03fbda4
   "integrations": {
     "capacitor": {}
   },

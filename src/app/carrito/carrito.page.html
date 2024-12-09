@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Carrito</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="volver()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Volver
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="vaciarCarrito()">
+        Vaciar Carrito
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Lista de productos en el carrito -->
+  <ion-list>
+    <ion-item *ngFor="let producto of productos">
+      <ion-thumbnail slot="start">
+        <img [src]="producto.imagen" alt="{{ producto.nombre }}">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ producto.nombre }}</h2>
+        <strong>{{ producto.precio | currency }}</strong>
+        <div class="cantidad-container">
+          <ion-button fill="outline" (click)="cambiarCantidad(producto, -1)" size="small">-</ion-button>
+          <span>{{ producto.cantidad }}</span>
+          <ion-button fill="outline" (click)="cambiarCantidad(producto, 1)" size="small">+</ion-button>
+          <p class="cantidad-maxima">Máximo 999 unidades.</p>
+        </div>
+      </ion-label>
+      <ion-button fill="outline" color="danger" slot="end" (click)="eliminarProducto(producto.nombre)">
+        Eliminar
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label><strong>Total: {{ total | currency }}</strong></ion-label>
+  </ion-item>
+  <ion-button expand="block">Pagar</ion-button>
