@@ -1,4 +1,4 @@
-# PGY-4121
+ionicApp
 
 ## Como desplegar la apk desde Ionic
 
